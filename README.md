@@ -35,7 +35,7 @@ There is no reason to build your application each time, so run `bin/boilerplate`
 ```sh
 $ php bin/boilerplate
 ```
-or mark file as executable with `chmod +x boilerplate.phar` and run 
+or mark file as executable with `chmod +x bin/boilerplate` and run 
 ```sh
 $ ./bin/boilerplate
 ```
