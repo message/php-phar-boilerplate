@@ -1,0 +1,12 @@
+{
+    "finder": [
+        {
+            "name": "*.php",
+            "in": ["src", "vendor"]
+        }
+
+    ],
+    "main": "bin/boilerplate",
+    "output": "boilerplate.phar",
+    "stub": true
+}

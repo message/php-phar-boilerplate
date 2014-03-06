@@ -1,0 +1,22 @@
+{
+    "name": "message/php-phar-boilerplate",
+    "description": "PHAR Boilerplate",
+    "authors": [
+        {
+            "name": "Dmitry Polovka",
+            "email": "messaged@messaged.lv"
+        }
+    ],
+    "config": {
+        "bin-dir": "bin"
+    },
+    "autoload": {
+        "psr-0": {
+            "Application": "src/"
+        }
+    },
+    "require": {
+        "symfony/console": "2.4.*",
+        "symfony/finder": "2.4.*"
+    }
+}

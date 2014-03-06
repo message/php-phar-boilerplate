@@ -1,0 +1,63 @@
+#!/usr/bin/env php
+<?php
+
+use Symfony\Component\Finder\Finder;
+use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Command\Command;
+
+define('DS', DIRECTORY_SEPARATOR);
+
+$root = dirname(__DIR__);
+
+if (extension_loaded('phar') && ($uri = Phar::running())) {
+    $root = $uri;
+}
+
+require $root . '/vendor/autoload.php';
+
+$console = new Application();
+$console->setName('Boilerplate');
+
+$consoleCommandsDirectory = dirname(__DIR__) . DS . 'src' . DS . 'Application' . DS . 'Command' . DS;
+
+clearstatcache(true, $consoleCommandsDirectory);
+
+$finder = new Finder();
+$paths = $finder->files()
+    ->name('*Command.php')
+    ->notName('*AbstractCommand.php')
+    // ignore all interfaces
+    ->notName('*Interface.php')
+    ->depth('== 0')
+    ->in($consoleCommandsDirectory)
+    ->getIterator();
+
+$commandCount = 0;
+$lastCommand = null;
+
+// create console commands
+foreach ($paths as $path) {
+
+    $className = 'Application\\Command\\' . basename($path, '.php');
+
+    $reflection = new \ReflectionClass($className);
+
+    // do not create abstract classes and interfaces
+    if ($reflection->isAbstract() || $reflection->isInterface()) {
+        continue;
+    }
+
+    $command = new $className;
+    /* @var $command \Symfony\Component\Console\Command\Command */
+
+    if ( ! $command instanceof Command) {
+        continue;
+    }
+
+    $commandCount ++;
+    $lastCommand = $command->getName();
+
+    $console->add($command);
+}
+
+$console->run();
