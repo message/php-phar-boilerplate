@@ -30,7 +30,6 @@ $ composer install
 ## Development
 `src/Application/Command` path is automatically scanned for commands. Name convention `*Command.php`. To learn more about commands see [manual](http://symfony.com/doc/2.4/components/console/index.html).
 
-## Testing
 There is no reason to build your application each time, so run `bin/boilerplate` command, and you will get same result.
 ```sh
 $ php bin/boilerplate
