@@ -60,4 +60,14 @@ foreach ($paths as $path) {
     $console->add($command);
 }
 
-$console->run();
+$input = null;
+if ($commandCount === 1) {
+	$argv = $_SERVER['argv'];
+
+	// add command name
+	array_push($argv, $lastCommand);
+
+	$input = new \Symfony\Component\Console\Input\ArgvInput($argv);
+}
+
+$console->run($input);

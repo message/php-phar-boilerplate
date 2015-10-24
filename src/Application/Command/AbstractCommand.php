@@ -5,7 +5,6 @@ namespace Application\Command;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-//use Symfony\Component\Console\Formatter\OutputFormatterStyle;
 
 abstract class AbstractCommand extends Command
 {
@@ -29,15 +28,6 @@ abstract class AbstractCommand extends Command
         $this->output = $output;
 
         $this->setHelperSet($this->getApplication()->getHelperSet());
-
-//        $symbolStyle = new OutputFormatterStyle();
-//        $symbolStyle->setForeground('blue');
-//        $output->getFormatter()->setStyle('symbol', $symbolStyle);
-//
-//        $oldStyle = new OutputFormatterStyle();
-//        $oldStyle->setForeground('red');
-//        $oldStyle->setOption('bold');
-//        $output->getFormatter()->setStyle('old', $oldStyle);
 
         return parent::run($input, $output);
     }
