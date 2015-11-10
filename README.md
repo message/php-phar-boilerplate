@@ -8,7 +8,7 @@ This boilerplate helps you to create [PHAR](https://php.net/phar) archives from 
 Install [Box](http://box-project.org/).
 
 ```sh
-$ curl -LSs http://box-project.org/installer.php | php
+$ curl -LSs http://box-project.github.io/box2/installer.php | php
 $ chmod +x box.phar 
 $ mv box.phar /usr/local/bin/box
 ```
