@@ -8,23 +8,23 @@ This boilerplate helps you to create [PHAR](https://php.net/phar) archives from 
 Install [Box](http://box-project.org/).
 
 ```sh
-$ curl -LSs http://box-project.github.io/box2/installer.php | php
-$ chmod +x box.phar 
-$ mv box.phar /usr/local/bin/box
+curl -LSs https://box-project.github.io/box2/installer.php | php
+chmod +x box.phar
+mv box.phar /usr/local/bin/box
 ```
 
 Install [Composer](https://getcomposer.org/)
 
 
 ```sh
-$ curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-$ chmod +x /usr/local/bin/composer
+curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+chmod +x /usr/local/bin/composer
 ```
 
 Fetch dependencies
 
 ```sh
-$ composer install
+composer install
 ```
 
 ## Development
@@ -32,27 +32,27 @@ $ composer install
 
 There is no reason to build your application each time, so run `bin/boilerplate` command, and you will get same result.
 ```sh
-$ php bin/boilerplate
+php bin/boilerplate
 ```
 or mark file as executable with `chmod +x bin/boilerplate` and run 
 ```sh
-$ ./bin/boilerplate
+./bin/boilerplate
 ```
 
 ## Build
 
 ```sh
-$ box build
+box build
 ```
 
 ## Run 
 
 ```sh
-$ php boilerplate.phar
+php boilerplate.phar
 ```
 
 or mark file as executable with `chmod +x boilerplate.phar` and run 
 
 ```sh
-$ ./boilerplate.phar
+./boilerplate.phar
 ```
